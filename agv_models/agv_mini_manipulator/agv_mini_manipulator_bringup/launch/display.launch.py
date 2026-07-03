@@ -10,7 +10,7 @@ def generate_launch_description():
     urdf_path = os.path.join(get_package_share_path('agv_mini_manipulator_description'), 
                              'urdf', 'agv_mini_manipulator.urdf.xacro')
 
-    rviz_config_path = os.path.join(get_package_share_path('agv_mini_manipulator_description'),
+    rviz_config_path = os.path.join(get_package_share_path('agv_mini_manipulator_bringup'),
                                     'rviz', 'agv_mini_manipulator_only.rviz')
 
     robot_description = ParameterValue(Command(['xacro ', urdf_path]),value_type=str)
