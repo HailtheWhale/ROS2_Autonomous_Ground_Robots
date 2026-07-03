@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /RobotModel1/Links1
       Splitter Ratio: 0.5
     Tree Height: 542
   - Class: rviz_common/Selection
@@ -48,7 +49,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.5
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
       Description File: ""
@@ -66,23 +67,28 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        back_wheel_link:
+        back_castor_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        back_wheel_link_x:
+        back_castor_wheel_link_x:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        back_wheel_link_y:
+        back_castor_wheel_link_y:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        back_wheel_link_z:
+        back_castor_wheel_link_z:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        back_lidar_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_footprint:
           Alpha: 1
           Show Axes: false
@@ -92,34 +98,29 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        front_wheel_link:
+        front_castor_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        front_wheel_link_x:
+        front_castor_wheel_link_x:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        front_wheel_link_y:
+        front_castor_wheel_link_y:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        front_wheel_link_z:
+        front_castor_wheel_link_z:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        front_lidar_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        lidar_back_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        lidar_front_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -144,31 +145,31 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        back_wheel_link:
+        back_castor_wheel_link:
           Value: true
-        back_wheel_link_x:
+        back_castor_wheel_link_x:
           Value: true
-        back_wheel_link_y:
+        back_castor_wheel_link_y:
           Value: true
-        back_wheel_link_z:
+        back_castor_wheel_link_z:
+          Value: true
+        back_lidar_link:
           Value: true
         base_footprint:
           Value: true
         base_link:
           Value: true
-        front_wheel_link:
+        front_castor_wheel_link:
           Value: true
-        front_wheel_link_x:
+        front_castor_wheel_link_x:
           Value: true
-        front_wheel_link_y:
+        front_castor_wheel_link_y:
           Value: true
-        front_wheel_link_z:
+        front_castor_wheel_link_z:
+          Value: true
+        front_lidar_link:
           Value: true
         left_wheel_link:
-          Value: true
-        lidar_back_link:
-          Value: true
-        lidar_front_link:
           Value: true
         right_wheel_link:
           Value: true
@@ -180,21 +181,21 @@ Visualization Manager:
       Tree:
         base_footprint:
           base_link:
-            back_wheel_link:
-              back_wheel_link_x:
-                back_wheel_link_y:
-                  back_wheel_link_z:
+            back_castor_wheel_link:
+              back_castor_wheel_link_x:
+                back_castor_wheel_link_y:
+                  back_castor_wheel_link_z:
                     {}
-            front_wheel_link:
-              front_wheel_link_x:
-                front_wheel_link_y:
-                  front_wheel_link_z:
+            back_lidar_link:
+              {}
+            front_castor_wheel_link:
+              front_castor_wheel_link_x:
+                front_castor_wheel_link_y:
+                  front_castor_wheel_link_z:
                     {}
+            front_lidar_link:
+              {}
             left_wheel_link:
-              {}
-            lidar_back_link:
-              {}
-            lidar_front_link:
               {}
             right_wheel_link:
               {}
@@ -246,25 +247,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.4424086809158325
+      Distance: 0.5780524611473083
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 0.2193298488855362
+        Y: 0.13175345957279205
+        Z: 0.23471352458000183
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.2053980529308319
+      Pitch: 0.15539802610874176
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.858581066131592
+      Yaw: 4.633576393127441
     Saved: ~
 Window Geometry:
   Displays:
@@ -282,5 +283,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 909
-  Y: 85
+  X: 167
+  Y: 87

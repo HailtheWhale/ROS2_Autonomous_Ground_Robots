@@ -1,0 +1,23 @@
+<?xml version ="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="lidar" params="prefix m lidar_radius lidar_height">
+        <xacro:cylinder link_name="${prefix}_lidar_link" m="${m}"
+                        radius="${lidar_radius}" length="${lidar_height}"
+                        o_xyz="0 0 0" o_rpy="0 0 0"/>
+    </xacro:macro>
+
+    <xacro:macro name="wheel" params="m prefix wheel_radius wheel_thickness">
+        <xacro:cylinder link_name="${prefix}_wheel_link" m="${m}"
+                        radius="${wheel_radius}" length="${wheel_thickness}"
+                        o_xyz="0 0 0" o_rpy="0 0 0"/>
+    </xacro:macro>
+
+    <xacro:macro name="castor_wheel" params="prefix m wheel_offset">
+        <xacro:sphere link_name="${prefix}_castor_wheel_link" m="${m}"
+                        radius="${wheel_offset/2.0}"
+                        o_xyz="0 0 0" o_rpy="0 0 0"/>
+    </xacro:macro>
+    
+</robot>

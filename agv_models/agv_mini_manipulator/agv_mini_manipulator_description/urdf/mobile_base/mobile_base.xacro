@@ -1,0 +1,97 @@
+<?xml version ="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- Macros -->
+    <xacro:include filename="mobile_base_macros.xacro"/>
+
+    <!-- Variables -->
+    <xacro:property name="base_length" value="0.5"/>
+    <xacro:property name="base_width" value="0.5"/>
+    <xacro:property name="base_height" value="0.2"/>
+
+    <xacro:property name="wheel_offset" value="0.075"/>
+    <xacro:property name="wheel_thickness" value="0.05"/>
+    <xacro:property name="wheel_radius" value="0.1"/>
+
+    <xacro:property name="lidar_height" value="0.03"/>
+    <xacro:property name="lidar_radius" value="0.03"/>
+
+    <!-- base_footprint_base_link_joint -->
+    <link name="base_footprint"/>
+
+    <xacro:box m="5.0" o_xyz="0 0 0" o_rpy="0 0 0"
+    link_name="base_link" length="${base_length}" 
+    width="${base_width}" height="${base_height}"/>
+
+    <joint name="base_footprint_base_link_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 ${base_height / 2.0 + wheel_offset}" rpy="0 0 0"/>
+    </joint>
+    <!-- base_footprint_base_link_joint -->
+
+    <!-- base_link_lidar_front_joint -->
+    <xacro:lidar prefix="front" m="0.5" lidar_radius="${lidar_radius}" lidar_height="${lidar_height}"/>
+    <joint name="base_link_lidar_front_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="front_lidar_link"/>
+        <origin xyz="${base_length / 2.0 - 0.05} 0.0 ${base_height / 2.0 + lidar_height / 2.0}" 
+        rpy="0 0 0"/>
+    </joint>
+    <!-- base_link_lidar_front_joint -->
+
+    <!-- base_link_lidar_back_joint -->
+    <xacro:lidar prefix="back" m="0.5" lidar_radius="${lidar_radius}" lidar_height="${lidar_height}"/>
+    <joint name="base_link_lidar_back_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="back_lidar_link"/>
+        <origin xyz="${-1.0*(base_length / 2.0 - 0.05)} 0.0 ${base_height / 2.0 + lidar_height / 2.0}" 
+        rpy="0 0 ${pi / 2.0}"/>
+    </joint>
+    <!-- base_link_lidar_back_joint -->
+
+    <!-- base_link_right_wheel_joint -->
+    <xacro:wheel prefix="right" m="2.0" wheel_radius="${wheel_radius}" wheel_thickness="${wheel_thickness}"/>
+    <joint name="base_link_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_wheel_link"/>
+        <origin xyz="0.0 ${base_width / 2.0 + wheel_thickness / 2.0} ${-1.0 * (base_height / 2.0 - wheel_radius + wheel_offset)}"
+        rpy="${-pi / 2.0} 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <!-- base_link_right_wheel_joint -->
+
+    <!-- base_link_left_wheel_joint -->
+    <xacro:wheel prefix="left" m="2.0" wheel_radius="${wheel_radius}" wheel_thickness="${wheel_thickness}"/>
+    <joint name="base_link_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_wheel_link"/>
+        <origin xyz="0.0 ${-1.0*(base_width / 2.0 + wheel_thickness / 2.0)} ${-1.0 * (base_height / 2.0 - wheel_radius + wheel_offset)}" 
+        rpy="${pi / 2.0} 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <!-- base_link_left_wheel_joint -->
+
+    <!-- base_link_front_wheel_joint -->
+    <xacro:castor_wheel m="0.75" prefix="front" wheel_offset="${wheel_offset}"/>
+    <joint name="base_link_front_wheel_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="front_castor_wheel_link"/>
+        <origin xyz="${base_length / 2.0 - 0.075} 0.0 ${-1.0*(base_height / 2.0 + wheel_offset / 2.0)}" 
+        rpy="0 0 0"/>
+    </joint>
+    <xacro:three_axis_joint prefix="front_castor_wheel" parent_link="front_castor_wheel_link"/>
+    <!-- base_link_front_wheel_joint -->
+
+    <!-- base_link_back_wheel_joint -->
+    <xacro:castor_wheel m="0.75" prefix="back" wheel_offset="${wheel_offset}"/>
+    <joint name="base_link_back_wheel_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="back_castor_wheel_link"/>
+        <origin xyz="${-1.0*(base_length / 2.0 - 0.075)} 0.0 ${-1.0*(base_height / 2.0 + wheel_offset / 2.0)}" 
+        rpy="0 0 0"/>
+    </joint>
+    <xacro:three_axis_joint prefix="back_castor_wheel" parent_link="back_castor_wheel_link"/>
+    <!-- base_link_back_wheel_joint -->
+    
+</robot>
