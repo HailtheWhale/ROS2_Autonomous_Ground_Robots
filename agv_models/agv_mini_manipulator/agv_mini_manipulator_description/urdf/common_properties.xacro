@@ -15,23 +15,7 @@
     </material>
     
     <!-- Common Xacros -->
-    <xacro:macro name="box" params="m o_xyz o_rpy link_name length width height">
-        <link name="${link_name}">
-            <visual>
-                <geometry>
-                <box size="${length} ${width} ${height}"/>
-                </geometry>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-                <material name="blue"/>
-            </visual>
-
-            <collision>
-                <geometry>
-                <box size="${length} ${width} ${height}"/>
-                </geometry>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-            </collision>
-
+    <xacro:macro name="box_inertia" params="m o_xyz o_rpy length width height">
             <inertial>
                 <mass value="${m}"/>
                 <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
@@ -39,61 +23,26 @@
                          iyy="${m /12 * (length**2 + height**2)}" iyz="0" 
                          izz="${m /12 * (length**2 + width**2)}"/>
             </inertial>
-        </link>
     </xacro:macro>
 
-    <xacro:macro name="cylinder" params="link_name m radius length o_xyz o_rpy">
-        <link name="${link_name}">
-            <visual>
-                <geometry>
-                    <cylinder radius="${radius}" length="${length}"/>
-                </geometry>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-                <material name="black"/>
-            </visual>
-
-            <collision>
-                <geometry>
-                    <cylinder radius="${radius}" length="${length}"/>
-                </geometry>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-            </collision>
-
-            <inertial>
-                <mass value="${m}"/>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-                <inertia ixx="${m / 12 * (3*radius**2 + length**2)}" ixy="0" ixz="0" 
-                         iyy="${m / 12 * (3*radius**2 + length**2)}" iyz="0" 
-                         izz="${m / 2 * radius**2}"/>
-            </inertial>
-        </link>
+    <xacro:macro name="cylinder_inertia" params="m radius length o_xyz o_rpy">
+        <inertial>
+            <mass value="${m}"/>
+            <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
+            <inertia ixx="${m / 12 * (3*radius**2 + length**2)}" ixy="0" ixz="0" 
+                        iyy="${m / 12 * (3*radius**2 + length**2)}" iyz="0" 
+                        izz="${m / 2 * radius**2}"/>
+        </inertial>
     </xacro:macro>
 
-    <xacro:macro name="sphere" params="link_name m radius o_xyz o_rpy">
-        <link name="${link_name}">
-            <visual>
-                <geometry>
-                <sphere radius="${radius}"/>
-                </geometry>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-                <material name="gray"/>
-            </visual>
-
-            <collision>
-                <geometry>
-                <sphere radius="${radius}"/>
-                </geometry>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-            </collision>
-
-            <inertial>
-                <mass value="${m}"/>
-                <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-                <inertia ixx="${2/3 * m * (radius)**2}" ixy="0" ixz="0" 
-                         iyy="${2/3 * m * (radius)**2}" iyz="0" 
-                         izz="${2/3 * m * (radius)**2}"/>
-            </inertial>
-        </link>
+    <xacro:macro name="sphere_inertia" params="m radius o_xyz o_rpy">
+        <inertial>
+            <mass value="${m}"/>
+            <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
+            <inertia ixx="${2/5 * m * (radius)**2}" ixy="0" ixz="0" 
+                     iyy="${2/5 * m * (radius)**2}" iyz="0" 
+                     izz="${2/5 * m * (radius)**2}"/>
+        </inertial>
     </xacro:macro>
 
     <!-- Joint Xacros -->
