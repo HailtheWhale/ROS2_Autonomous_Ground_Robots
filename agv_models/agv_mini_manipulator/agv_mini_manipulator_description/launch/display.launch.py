@@ -8,7 +8,7 @@ from ament_index_python.packages import get_package_share_path
 def generate_launch_description():
 
     urdf_path = os.path.join(get_package_share_path('agv_mini_manipulator_description'), 
-                             'urdf', 'agv_mini_manipulator.urdf')
+                             'urdf', 'agv_mini_manipulator.urdf.xacro')
 
     rviz_config_path = os.path.join(get_package_share_path('agv_mini_manipulator_description'),
                                     'rviz', 'agv_mini_manipulator_only.rviz')
