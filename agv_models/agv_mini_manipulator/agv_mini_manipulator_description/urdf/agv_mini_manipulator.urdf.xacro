@@ -6,5 +6,8 @@
 
     <!-- Mobile Base-->
     <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base.xacro"/>
+    <!-- Gazebo -->
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base_gazebo.xacro"/>
+
 
 </robot>

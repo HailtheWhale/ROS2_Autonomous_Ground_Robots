@@ -56,8 +56,8 @@
         <parent link="base_link"/>
         <child link="right_wheel_link"/>
         <origin xyz="0.0 ${base_width / 2.0 + wheel_thickness / 2.0} ${-1.0 * (base_height / 2.0 - wheel_radius + wheel_offset)}"
-        rpy="${-pi / 2.0} 0 0"/>
-        <axis xyz="0 1 0"/>
+        rpy="${pi / 2.0} 0 0"/>
+        <axis xyz="0 0 1"/>
     </joint>
     <!-- base_link_right_wheel_joint -->
 
@@ -68,12 +68,12 @@
         <child link="left_wheel_link"/>
         <origin xyz="0.0 ${-1.0*(base_width / 2.0 + wheel_thickness / 2.0)} ${-1.0 * (base_height / 2.0 - wheel_radius + wheel_offset)}" 
         rpy="${pi / 2.0} 0 0"/>
-        <axis xyz="0 1 0"/>
+        <axis xyz="0 0 1"/>
     </joint>
     <!-- base_link_left_wheel_joint -->
 
     <!-- base_link_front_wheel_joint -->
-    <xacro:castor_wheel m="0.75" prefix="front" wheel_offset="${wheel_offset}"/>
+    <xacro:castor_wheel prefix="front" m="0.75" wheel_offset="${wheel_offset}"/>
     <joint name="base_link_front_wheel_joint" type="fixed">
         <parent link="base_link"/>
         <child link="front_castor_wheel_link"/>
@@ -84,7 +84,7 @@
     <!-- base_link_front_wheel_joint -->
 
     <!-- base_link_back_wheel_joint -->
-    <xacro:castor_wheel m="0.75" prefix="back" wheel_offset="${wheel_offset}"/>
+    <xacro:castor_wheel prefix="back" m="0.75" wheel_offset="${wheel_offset}"/>
     <joint name="base_link_back_wheel_joint" type="fixed">
         <parent link="base_link"/>
         <child link="back_castor_wheel_link"/>

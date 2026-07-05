@@ -46,8 +46,20 @@
     </xacro:macro>
 
     <!-- Joint Xacros -->
+    <xacro:macro name="nonzero_inertia">
+        <inertial>
+            <mass value="0.0001"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1e-6" ixy="0" ixz="0" 
+                     iyy="1e-6" iyz="0" 
+                     izz="1e-6"/>
+        </inertial>
+    </xacro:macro>
+
     <xacro:macro name="three_axis_joint" params="prefix parent_link">
-        <link name="${prefix}_link_x"/>
+        <link name="${prefix}_link_x">
+            <xacro:nonzero_inertia/>
+        </link>
         <joint name="${prefix}_joint_x" type="continuous">
             <parent link="${parent_link}"/>
             <child link="${prefix}_link_x"/>
@@ -55,7 +67,9 @@
             <axis xyz="1 0 0"/>
         </joint>
 
-        <link name="${prefix}_link_y"/>
+        <link name="${prefix}_link_y">
+            <xacro:nonzero_inertia/>
+        </link>
         <joint name="${prefix}_joint_y" type="continuous">
             <parent link="${prefix}_link_x"/>
             <child link="${prefix}_link_y"/>
@@ -63,7 +77,9 @@
             <axis xyz="0 1 0"/>
         </joint>
 
-        <link name="${prefix}_link_z"/>
+        <link name="${prefix}_link_z">
+            <xacro:nonzero_inertia/>
+        </link>
         <joint name="${prefix}_joint_z" type="continuous">
             <parent link="${prefix}_link_y"/>
             <child link="${prefix}_link_z"/>
