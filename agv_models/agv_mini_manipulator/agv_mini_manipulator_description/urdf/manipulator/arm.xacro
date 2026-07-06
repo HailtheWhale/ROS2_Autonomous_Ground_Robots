@@ -3,9 +3,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- Variables -->
-    <xacro:property name="manipulator_link_width" value="0.04"/>
-    <xacro:property name="manipulator_link_thickness" value="0.02"/>
-    <xacro:property name="manipulator_joint_offset" value="0.02"/>
+    <xacro:property name="manipulator_link_width" value="0.08"/>
+    <xacro:property name="manipulator_link_thickness" value="0.04"/>
+    <xacro:property name="manipulator_joint_offset" value="0.04"/>
 
     <xacro:property name="q0_height" value="0.05"/>
     <xacro:property name="q0_limit_lower" value="${-3*pi / 4.0}"/>
@@ -15,7 +15,7 @@
     <xacro:property name="q0_friction" value="0.3"/>
     <xacro:property name="q0_damping" value="0.3"/>
 
-    <xacro:property name="q1_length" value="0.132"/>
+    <xacro:property name="q1_length" value="0.3"/>
     <xacro:property name="q1_limit_lower" value="${-pi / 4.0}"/>
     <xacro:property name="q1_limit_upper" value="${pi / 2.0}"/>
     <xacro:property name="q1_limit_effort" value="100"/>
@@ -23,7 +23,7 @@
     <xacro:property name="q1_friction" value="0.3"/>
     <xacro:property name="q1_damping" value="0.3"/>
 
-    <xacro:property name="q2_length" value="0.132"/>
+    <xacro:property name="q2_length" value="0.264"/>
     <xacro:property name="q2_limit_lower" value="${-3*pi / 4.0}"/>
     <xacro:property name="q2_limit_upper" value="${3*pi / 4.0}"/>
     <xacro:property name="q2_limit_effort" value="100"/>
@@ -32,13 +32,13 @@
     <xacro:property name="q2_damping" value="0.3"/>
 
     <!-- arm_base_link -->
-    <xacro:cylinder link_name="arm_base_link" m="10.0" o_xyz="0 0 ${q0_height / 2.0}" 
-    o_rpy="0 0 0" radius="0.06" length="${q0_height}" material_name="orange"/>
+    <xacro:cylinder link_name="arm_base_link" m="1.0" o_xyz="0 0 ${q0_height / 2.0}" 
+    o_rpy="0 0 0" radius="0.16" length="${q0_height}" material_name="orange"/>
     <!-- arm_base_link -->
 
     <!-- q0 -->
     <xacro:sphere link_name="q0_link" m="0.75" o_xyz="0 0 0" o_rpy="0 0 0"
-    radius="0.05" material_name="orange"/>
+    radius="0.1" material_name="orange"/>
 
     <joint name="q0" type="revolute">
         <parent link="arm_base_link"/>
