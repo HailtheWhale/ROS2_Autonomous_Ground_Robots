@@ -2,14 +2,14 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="robot_base" params="link_name m o_xyz o_rpy length width height">
+    <xacro:macro name="box_link" params="link_name m o_xyz o_rpy length width height material_name">
         <link name="${link_name}">
             <visual>
                 <geometry>
                 <box size="${length} ${width} ${height}"/>
                 </geometry>
                 <origin xyz="${o_xyz}" rpy="${o_rpy}"/>
-                <material name="blue"/>
+                <material name="${material_name}"/>
             </visual>
 
             <collision>
