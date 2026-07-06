@@ -25,3 +25,23 @@
   ros_type_name: "geometry_msgs/msg/Twist"
   gz_type_name: "gz.msgs.Twist"
   direction: ROS_TO_GZ
+
+
+# Joint command positions
+- ros_topic_name: "/q0/cmd_pos"
+  gz_topic_name: "/model/agv_mini_manipulator/joint/q0/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/q1/cmd_pos"
+  gz_topic_name: "/model/agv_mini_manipulator/joint/q1/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/q2/cmd_pos"
+  gz_topic_name: "/model/agv_mini_manipulator/joint/q2/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
