@@ -6,7 +6,9 @@
     <xacro:property name="lidar_radius" value="0.03"/>
 
     <!-- base_link_lidar_front_joint -->
-    <xacro:lidar prefix="front" m="0.5" lidar_radius="${lidar_radius}" lidar_height="${lidar_height}"/>
+    <xacro:cylinder link_name="front_lidar_link" m="0.5" o_xyz="0 0 0" o_rpy="0 0 0"
+    radius="${lidar_radius}" length="${lidar_height}" material_name="black"/>
+
     <joint name="base_link_lidar_front_joint" type="fixed">
         <parent link="base_link"/>
         <child link="front_lidar_link"/>
@@ -16,7 +18,9 @@
     <!-- base_link_lidar_front_joint -->
 
     <!-- base_link_lidar_back_joint -->
-    <xacro:lidar prefix="back" m="0.5" lidar_radius="${lidar_radius}" lidar_height="${lidar_height}"/>
+    <xacro:cylinder link_name="back_lidar_link" m="0.5" o_xyz="0 0 0" o_rpy="0 0 0"
+    radius="${lidar_radius}" length="${lidar_height}" material_name="black"/>
+
     <joint name="base_link_lidar_back_joint" type="fixed">
         <parent link="base_link"/>
         <child link="back_lidar_link"/>
