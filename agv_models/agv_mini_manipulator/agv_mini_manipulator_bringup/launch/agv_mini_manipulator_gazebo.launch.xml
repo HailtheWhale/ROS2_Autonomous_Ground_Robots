@@ -7,7 +7,7 @@
         value="$(find-pkg-share agv_mini_manipulator_bringup)/config/gazebo_bridge.yaml"/>
 
     <let name="rviz_config_path" 
-        value="$(find-pkg-share agv_mini_manipulator_bringup)/rviz/agv_mini_manipulator_only_gazebo.rviz"/>
+        value="$(find-pkg-share agv_mini_manipulator_bringup)/rviz/agv_mini_manipulator_only_gazebo_cam.rviz"/>
 
     <!-- Spawn robot_description -->
     <node pkg = "robot_state_publisher" exec="robot_state_publisher">
