@@ -1,0 +1,89 @@
+<?xml version ="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Variables -->
+    <xacro:property name="manipulator_link_width" value="0.08"/>
+    <xacro:property name="manipulator_link_thickness" value="0.04"/>
+    <xacro:property name="manipulator_joint_offset" value="0.04"/>
+
+    <xacro:property name="q0_height" value="0.05"/>
+    <xacro:property name="q0_limit_lower" value="${-3*pi / 4.0}"/>
+    <xacro:property name="q0_limit_upper" value="${3*pi / 4.0}"/>
+    <xacro:property name="q0_limit_effort" value="100"/>
+    <xacro:property name="q0_limit_velocity" value="100.0"/>
+    <xacro:property name="q0_friction" value="0.3"/>
+    <xacro:property name="q0_damping" value="0.3"/>
+
+    <xacro:property name="q1_length" value="0.3"/>
+    <xacro:property name="q1_limit_lower" value="${-pi / 4.0}"/>
+    <xacro:property name="q1_limit_upper" value="${pi / 2.0}"/>
+    <xacro:property name="q1_limit_effort" value="100"/>
+    <xacro:property name="q1_limit_velocity" value="100.0"/>
+    <xacro:property name="q1_friction" value="0.3"/>
+    <xacro:property name="q1_damping" value="0.3"/>
+
+    <xacro:property name="q2_length" value="0.264"/>
+    <xacro:property name="q2_limit_lower" value="${-3*pi / 4.0}"/>
+    <xacro:property name="q2_limit_upper" value="${3*pi / 4.0}"/>
+    <xacro:property name="q2_limit_effort" value="100"/>
+    <xacro:property name="q2_limit_velocity" value="100.0"/>
+    <xacro:property name="q2_friction" value="0.3"/>
+    <xacro:property name="q2_damping" value="0.3"/>
+
+    <!-- arm_base_link -->
+    <xacro:cylinder link_name="arm_base_link" m="1.0" o_xyz="0 0 ${q0_height / 2.0}" 
+    o_rpy="0 0 0" radius="0.16" length="${q0_height}" material_name="orange"/>
+    <!-- arm_base_link -->
+
+    <!-- q0 -->
+    <xacro:sphere link_name="q0_link" m="0.75" o_xyz="0 0 0" o_rpy="0 0 0"
+    radius="0.1" material_name="orange"/>
+
+    <joint name="q0" type="revolute">
+        <parent link="arm_base_link"/>
+        <child link="q0_link"/>
+        <origin xyz="0 0 ${q0_height + manipulator_link_width / 2.0}" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="${q0_limit_lower}" upper="${q0_limit_upper}" 
+        effort="${q0_limit_effort}" velocity="${q0_limit_velocity}"/>
+        <dynamics damping="${q0_damping}" friction="${q0_friction}"/>
+    </joint>
+    <!-- q0 -->
+
+    <!-- q1 -->
+    <xacro:box_link link_name="q1_link" m="0.5" o_xyz="${q1_length / 2.0} 0 0" 
+    o_rpy="0 0 0" length="${q1_length + manipulator_joint_offset}" width="${manipulator_link_width}"
+    height="${manipulator_link_thickness}" material_name="orange"/>
+
+    <joint name="q1" type="revolute">
+        <parent link="q0_link"/>
+        <child link="q1_link"/>
+        <origin xyz="0 0 0" rpy="${-pi / 2.0} ${-pi / 2.0} 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="${q1_limit_lower}" upper="${q1_limit_upper}" 
+        effort="${q1_limit_effort}" velocity="${q1_limit_velocity}"/>
+        <dynamics damping="${q1_damping}" friction="${q1_friction}"/>
+    </joint>
+    <!-- q1 -->
+
+    <!-- q2 -->
+    <xacro:box_link link_name="q2_link" m="0.5" o_xyz="${q2_length / 2.0} 0 0" 
+    o_rpy="0 0 0" length="${q2_length + manipulator_joint_offset}" width="${manipulator_link_width}" 
+    height="${manipulator_link_thickness}" material_name="orange"/>
+
+    <joint name="q2" type="revolute">
+        <parent link="q1_link"/>
+        <child link="q2_link"/>
+        <origin xyz="${q2_length - manipulator_joint_offset} 0 ${manipulator_link_thickness}" 
+        rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="${q2_limit_lower}" upper="${q2_limit_upper}" 
+        effort="${q2_limit_effort}" velocity="${q2_limit_velocity}"/>
+        <dynamics damping="${q2_damping}" friction="${q2_friction}"/>
+    </joint>
+    <!-- q2 -->
+
+
+    
+</robot>

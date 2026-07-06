@@ -1,0 +1,27 @@
+<?xml version ="1.0"?>
+
+<robot name="agv_mini_manipulator_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="common_properties.xacro"/>
+    <xacro:include filename="common_hardware.xacro"/>
+
+    <!-- Mobile Base-->
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base.xacro"/>
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base_gazebo.xacro"/>
+    <!-- Sensors -->
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/camera.xacro"/>
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/lidar.xacro"/>    
+    
+    <!-- Manipulator -->
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/manipulator/arm.xacro"/>
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/manipulator/arm_gazebo.xacro"/>
+
+    <!-- Connection -->
+    <joint name="base_link_to_arm_base_link" type="fixed">
+        <parent link="base_link"/>
+        <child link="arm_base_link"/>
+        <origin xyz="0 0 ${base_height / 2.0}" rpy="0 0 0"/>
+    </joint>
+
+
+</robot>

@@ -8,10 +8,10 @@ from ament_index_python.packages import get_package_share_path
 def generate_launch_description():
 
     urdf_path = os.path.join(get_package_share_path('agv_mini_manipulator_description'), 
-                             'urdf', 'agv_mini_manipulator.urdf.xacro')
+                             'urdf', 'mobile_base','mobile_base_robot.urdf.xacro')
 
     rviz_config_path = os.path.join(get_package_share_path('agv_mini_manipulator_bringup'),
-                                    'rviz', 'agv_mini_manipulator_only.rviz')
+                                    'rviz', 'mobile_base_display.rviz')
 
     robot_description = ParameterValue(Command(['xacro ', urdf_path]),value_type=str)
 

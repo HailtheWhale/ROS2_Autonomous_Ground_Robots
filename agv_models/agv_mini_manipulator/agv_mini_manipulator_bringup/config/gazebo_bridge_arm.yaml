@@ -1,0 +1,47 @@
+# Sim clock
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+# Joint states
+- ros_topic_name: "/joint_states"
+  gz_topic_name: "/world/empty/model/agv_mini_manipulator/joint_state"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+
+# tf
+- ros_topic_name: "/tf"
+  gz_topic_name: "/model/agv_mini_manipulator/tf"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+# cmd_vel
+- ros_topic_name: "/cmd_vel"
+  gz_topic_name: "/model/agv_mini_manipulator/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+
+# Joint command positions
+- ros_topic_name: "/q0/cmd_pos"
+  gz_topic_name: "/model/agv_mini_manipulator/joint/q0/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/q1/cmd_pos"
+  gz_topic_name: "/model/agv_mini_manipulator/joint/q1/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/q2/cmd_pos"
+  gz_topic_name: "/model/agv_mini_manipulator/joint/q2/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
