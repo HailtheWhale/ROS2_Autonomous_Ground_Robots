@@ -5,7 +5,7 @@
     <!-- Variables -->
     <xacro:property name="manipulator_link_width" value="0.04"/>
     <xacro:property name="manipulator_link_thickness" value="0.02"/>
-    <xacro:property name="manipulator_joint_offset" value="0.01"/>
+    <xacro:property name="manipulator_joint_offset" value="0.02"/>
 
     <xacro:property name="q0_height" value="0.05"/>
     <xacro:property name="q0_limit_lower" value="${-3*pi / 4.0}"/>
@@ -32,7 +32,7 @@
     <xacro:property name="q2_damping" value="0.3"/>
 
     <!-- arm_base_link -->
-    <xacro:cylinder link_name="arm_base_link" m="2.0" o_xyz="0 0 ${q0_height / 2.0}" 
+    <xacro:cylinder link_name="arm_base_link" m="10.0" o_xyz="0 0 ${q0_height / 2.0}" 
     o_rpy="0 0 0" radius="0.06" length="${q0_height}" material_name="orange"/>
     <!-- arm_base_link -->
 

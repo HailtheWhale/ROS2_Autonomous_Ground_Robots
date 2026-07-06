@@ -2,6 +2,9 @@
 
 <robot name="agv_mini_manipulator_mobile_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/common_properties.xacro"/>
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/common_hardware.xacro"/>
+
     <!-- Mobile Base-->
     <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base.xacro"/>
     <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base_gazebo.xacro"/>

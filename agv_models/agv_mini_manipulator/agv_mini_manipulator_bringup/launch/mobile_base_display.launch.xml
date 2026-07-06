@@ -1,7 +1,7 @@
 <launch>
 
     <let name="urdf_path" 
-        value="$(find-pkg-share agv_mini_manipulator_description)/urdf/robot.urdf.xacro"/>
+        value="$(find-pkg-share agv_mini_manipulator_description)/urdf/mobile_base/mobile_base_robot.urdf.xacro"/>
 
     <let name="rviz_config_path" 
         value="$(find-pkg-share agv_mini_manipulator_bringup)/rviz/mobile_base_display.rviz"/>
