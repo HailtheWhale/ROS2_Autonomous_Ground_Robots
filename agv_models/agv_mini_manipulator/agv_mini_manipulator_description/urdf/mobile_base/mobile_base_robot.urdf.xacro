@@ -1,0 +1,12 @@
+<?xml version ="1.0"?>
+
+<robot name="agv_mini_manipulator_mobile_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Mobile Base-->
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base.xacro"/>
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base_gazebo.xacro"/>
+    <!-- Sensors -->
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/camera.xacro"/>
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/lidar.xacro"/>
+
+</robot>

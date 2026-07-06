@@ -12,35 +12,42 @@
     <xacro:property name="q1_limit_upper" value="${3*pi / 4.0}"/>
     <xacro:property name="q1_limit_effort" value="100"/>
     <xacro:property name="q1_limit_velocity" value="100.0"/>
+    <xacro:property name="q1_friction" value="0.3"/>
+    <xacro:property name="q1_damping" value="0.3"/>
 
     <xacro:property name="q2_length" value="0.132"/>
     <xacro:property name="q2_limit_lower" value="${-3*pi / 4.0}"/>
     <xacro:property name="q2_limit_upper" value="0.0"/>
     <xacro:property name="q2_limit_effort" value="100"/>
     <xacro:property name="q2_limit_velocity" value="100.0"/>
+    <xacro:property name="q2_friction" value="0.3"/>
+    <xacro:property name="q2_damping" value="0.3"/>
 
     <xacro:property name="q3_length" value="0.132"/>
     <xacro:property name="q3_limit_lower" value="${-3*pi / 4.0}"/>
     <xacro:property name="q3_limit_upper" value="${3*pi / 4.0}"/>
     <xacro:property name="q3_limit_effort" value="100"/>
     <xacro:property name="q3_limit_velocity" value="100.0"/>
+    <xacro:property name="q3_friction" value="0.3"/>
+    <xacro:property name="q3_damping" value="0.3"/>
 
-    <!-- manipulator_base_link -->
-    <xacro:cylinder link_name="manipulator_base_link" m="2.0" o_xyz="0 0 ${q1_height / 2.0}" 
+    <!-- arm_base_link -->
+    <xacro:cylinder link_name="arm_base_link" m="2.0" o_xyz="0 0 ${q1_height / 2.0}" 
     o_rpy="0 0 0" radius="0.06" length="${q1_height}" material_name="orange"/>
-    <!-- manipulator_base_link -->
+    <!-- arm_base_link -->
 
     <!-- q1 -->
     <xacro:sphere link_name="q1_link" m="0.75" o_xyz="0 0 0" o_rpy="0 0 0"
     radius="0.05" material_name="orange"/>
 
     <joint name="q1" type="revolute">
-        <parent link="manipulator_base_link"/>
+        <parent link="arm_base_link"/>
         <child link="q1_link"/>
         <origin xyz="0 0 ${q1_height + manipulator_link_width / 2.0}" rpy="0 0 0"/>
         <axis xyz="0 0 1"/>
         <limit lower="${q1_limit_lower}" upper="${q1_limit_upper}" 
         effort="${q1_limit_effort}" velocity="${q1_limit_velocity}"/>
+        <dynamics damping="${q1_damping}" friction="${q1_friction}"/>
     </joint>
     <!-- q1 -->
 
@@ -56,6 +63,7 @@
         <axis xyz="0 0 1"/>
         <limit lower="${q2_limit_lower}" upper="${q2_limit_upper}" 
         effort="${q2_limit_effort}" velocity="${q2_limit_velocity}"/>
+        <dynamics damping="${q2_damping}" friction="${q2_friction}"/>
     </joint>
     <!-- q2 -->
 
@@ -72,6 +80,7 @@
         <axis xyz="0 0 1"/>
         <limit lower="${q3_limit_lower}" upper="${q3_limit_upper}" 
         effort="${q3_limit_effort}" velocity="${q3_limit_velocity}"/>
+        <dynamics damping="${q3_damping}" friction="${q3_friction}"/>
     </joint>
     <!-- q3 -->
 

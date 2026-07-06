@@ -1,0 +1,14 @@
+<?xml version ="1.0"?>
+
+<robot name="agv_mini_manipulator_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="common_properties.xacro"/>
+    <xacro:include filename="common_hardware.xacro"/>
+
+    <!-- Mobile base -->
+    <!-- <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base_robot.urdf.xacro"/> -->
+    <!-- Manipulator -->
+    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/manipulator/manipulator.urdf.xacro"/>
+
+
+</robot>
