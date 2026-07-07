@@ -28,5 +28,7 @@
         rpy="0 0 ${pi / 2.0}"/>
     </joint>
     <!-- base_link_lidar_back_joint -->
-    
+
+
+
 </robot>

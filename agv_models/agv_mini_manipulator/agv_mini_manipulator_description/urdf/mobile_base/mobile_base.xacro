@@ -33,6 +33,7 @@
         <origin xyz="0.0 ${base_width / 2.0 + wheel_thickness / 2.0} ${-1.0 * (base_height / 2.0 - wheel_radius + wheel_offset)}"
         rpy="${pi / 2.0} 0 0"/>
         <axis xyz="0 0 1"/>
+        <effort>20</effort>
     </joint>
     <!-- base_link_right_wheel_joint -->
 
@@ -44,6 +45,7 @@
         <origin xyz="0.0 ${-1.0*(base_width / 2.0 + wheel_thickness / 2.0)} ${-1.0 * (base_height / 2.0 - wheel_radius + wheel_offset)}" 
         rpy="${pi / 2.0} 0 0"/>
         <axis xyz="0 0 1"/>
+        <effort>20</effort>
     </joint>
     <!-- base_link_left_wheel_joint -->
 
