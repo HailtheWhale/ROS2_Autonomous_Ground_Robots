@@ -17,7 +17,7 @@
 
     <!-- Gazebo simulation -->
     <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py">
-        <arg name="gz_args" value="$(find-pkg-share agv_mini_manipulator_bringup)/worlds/test_world.sdf -r"/>
+        <arg name="gz_args" value="$(find-pkg-share agv_sim_gz)/worlds/test_world.sdf -r"/>
         <!-- <arg name="gz_args" value="empty.sdf -r"/> -->
     </include>
     <!-- Spawn robot in Gazebo -->
