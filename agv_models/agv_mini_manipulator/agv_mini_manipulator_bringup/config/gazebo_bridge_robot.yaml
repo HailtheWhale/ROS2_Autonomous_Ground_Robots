@@ -41,6 +41,14 @@
   gz_type_name: "gz.msgs.Image"
   direction: GZ_TO_ROS
 
+  # front lidar
+- ros_topic_name: "/laser_scan/front"
+  gz_topic_name: "/laser_scan/front"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+
   # Robot Arm
 - ros_topic_name: "/q0/cmd_pos"
   gz_topic_name: "/model/agv_mini_manipulator_robot/joint/q0/0/cmd_pos"

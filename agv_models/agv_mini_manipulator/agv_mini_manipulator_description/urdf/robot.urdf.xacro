@@ -9,7 +9,7 @@
     <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base.xacro"/>
     <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/mobile_base/mobile_base_gazebo.xacro"/>
     <!-- Sensors -->
-    <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/camera.xacro"/>
+    <!-- <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/camera.xacro"/> -->
     <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/lidar.xacro"/>   
     <xacro:include filename="$(find agv_mini_manipulator_description)/urdf/sensors/imu.xacro"/>   
 

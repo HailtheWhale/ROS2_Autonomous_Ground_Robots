@@ -3,40 +3,30 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- Controllers -->
-    <gazebo>
-        <plugin 
-            filename="gz-sim-joint-position-controller-system"
-            name="gz::sim::systems::JointPositionController" >
-            <joint_name>q0</joint_name>
-            <p_gain>5.0</p_gain>
-        </plugin>
-    </gazebo>
+    <xacro:macro name="joint_position_controller" params="joint_name p_gain i_gain d_gain">
+        <gazebo>
+            <plugin 
+                filename="gz-sim-joint-position-controller-system"
+                name="gz::sim::systems::JointPositionController" >
+                <topic>/cmd_pos/${joint_name}</topic>
+                <joint_name>${joint_name}</joint_name>
+                <p_gain>${p_gain}</p_gain>
+                <i_gain>${i_gain}</i_gain>
+                <d_gain>${d_gain}</d_gain>
+            </plugin>
+        </gazebo>
+    </xacro:macro>
 
-    <gazebo>
-        <plugin 
-            filename="gz-sim-joint-position-controller-system"
-            name="gz::sim::systems::JointPositionController" >
-            <joint_name>q1</joint_name>
-            <p_gain>6.0</p_gain>
-            <d_gain>2.5</d_gain>
-        </plugin>
-    </gazebo>
-
-    <gazebo>
-        <plugin 
-            filename="gz-sim-joint-position-controller-system"
-            name="gz::sim::systems::JointPositionController" >
-            <joint_name>q2</joint_name>
-            <p_gain>6.0</p_gain>
-            <d_gain>2.5</d_gain>
-        </plugin>
-    </gazebo>
+    <xacro:joint_position_controller joint_name="q0" p_gain="5.0" i_gain="0.01" d_gain="0.1"/>
+    <xacro:joint_position_controller joint_name="q1" p_gain="6.0" i_gain="0.01" d_gain="2.5"/>
+    <xacro:joint_position_controller joint_name="q2" p_gain="6.0" i_gain="0.01" d_gain="2.5"/>
 
     <!-- State publisher -->
     <gazebo>
         <plugin 
             filename="gz-sim-joint-state-publisher-system" 
             name="gz::sim::systems::JointStatePublisher" >
+            <topic>joint_states</topic>
             <joint_name>q0</joint_name>
             <joint_name>q1</joint_name>
             <joint_name>q2</joint_name>
