@@ -26,31 +26,57 @@
     </joint>
 
     <gazebo reference="rgb_camera_link">
-        <sensor type="camera" name="rgbd_camera">
-            <camera>
-                <horizontal_fov>1.3962634</horizontal_fov>
-                <image>
-                    <width>640</width>
-                    <height>480</height>
-                    <format>R8G8B8</format>
-                </image>
-                <clip>
-                    <near>0.1</near>
-                    <far>15</far>
-                </clip>
-                <noise>
-                    <type>gaussian</type>
-                    <mean>0.0</mean>
-                    <stddev>0.007</stddev>
-                </noise>
-                <optical_frame_id>rgb_camera_optical_link</optical_frame_id>
-                <camera_info_topic>camera/camera_info</camera_info_topic>
-            </camera>
+        <sensor name="rgb_camera" type="camera">
             <always_on>1</always_on>
-            <update_rate>20</update_rate>
+            <update_rate>10</update_rate>
             <visualize>true</visualize>
             <topic>camera/image_raw</topic>
-        </sensor>
+            <camera>
+                <optical_frame_id>rgb_camera_optical_link</optical_frame_id>
+                <camera_info_topic>camera/camera_info</camera_info_topic>
+
+                <horizontal_fov>1.658</horizontal_fov>
+
+                <!-- <lens> -->
+                    <!-- <intrinsics> -->
+                    <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+                    <!-- <fx>329.9</fx> -->
+                    <!-- <fy>329.9</fy> -->
+                    <!-- cx = ( width - 1 ) / 2 -->
+                    <!-- <cx>359.5</cx> -->
+                    <!-- cy = ( height - 1 ) / 2 -->
+                    <!-- <cy>539.5</cy> -->
+                    <!-- <s>0</s> -->
+                    <!-- </intrinsics> -->
+                <!-- </lens> -->
+
+                <distortion>
+                    <k1>0.0</k1>
+                    <k2>0.0</k2>
+                    <k3>0.0</k3>
+                    <p1>0.0</p1>
+                    <p2>0.0</p2>
+                    <center>0.5 0.5</center>
+                </distortion>
+
+                <image>
+                    <width>320</width>
+                    <height>240</height>
+                    <format>R8G8B8</format>
+                </image>
+
+                <clip>
+                    <near>0.01</near>
+                    <far>200</far>
+                </clip>
+
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0</mean>
+                    <stddev>0.007</stddev>
+                </noise>
+            </camera>
+       </sensor>
     </gazebo>
 
 
