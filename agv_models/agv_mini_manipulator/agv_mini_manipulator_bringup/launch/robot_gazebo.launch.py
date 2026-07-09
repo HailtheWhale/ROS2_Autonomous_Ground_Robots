@@ -49,10 +49,17 @@ def generate_launch_description():
                             output='screen')
 
 
+    gz_ros_bridge_node = Node(
+                        package='ros_gz_bridge',
+                        executable='parameter_bridge',
+                        parameters=[{'config_file': gz_bridge_config_path}],
+                        output='screen')
+
     # Launch node list
     return LaunchDescription([
         robot_state_publisher_node,
         rviz2_node,
         gz_node,  
         gz_spawn_robot_node,
+        gz_ros_bridge_node,
     ])

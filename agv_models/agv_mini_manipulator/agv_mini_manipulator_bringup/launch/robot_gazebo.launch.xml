@@ -23,9 +23,9 @@
     <!-- Spawn robot in Gazebo -->
     <node pkg="ros_gz_sim" exec="create" args="-topic robot_description"/>
     <!-- ROS Gazebo Bridge -->
-    <!-- <node pkg="ros_gz_bridge" exec="parameter_bridge">
+    <node pkg="ros_gz_bridge" exec="parameter_bridge">
         <param name="config_file" value="$(var gazebo_config_path)"/>
-    </node> -->
+    </node>
 
     <!-- Rviz -->
     <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" 

@@ -18,7 +18,7 @@
 
     <gazebo reference="front_lidar_link">
         <sensor name="front_lidar_link" type="gpu_lidar">
-                <topic>scan_front</topic>
+                <topic>scan/front</topic>
                 <visualize>true</visualize>
                 <update_rate>10</update_rate>
                 <gz_frame_id>front_lidar_link</gz_frame_id>
@@ -68,7 +68,7 @@
 
     <gazebo reference="back_lidar_link">
         <sensor name="back_lidar_link" type="gpu_lidar">
-                <topic>scan_back</topic>
+                <topic>scan/back</topic>
                 <visualize>true</visualize>
                 <update_rate>10</update_rate>
                 <gz_frame_id>back_lidar_link</gz_frame_id>
